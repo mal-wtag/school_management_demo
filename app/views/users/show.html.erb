@@ -1,0 +1,10 @@
+<h1></h1>
+<div class="col-md-6">
+  <ul class="list-group">
+    <li class="list-group-item text-center active"><%= @user.name %></li>
+    <li class="list-group-item">Phone : <%= @user.phone %></li>
+    <li class="list-group-item">Roll : <%= @user.roll %></li>
+    <li class="list-group-item">Address : <%= @user.address %></li>
+    <li class="list-group-item"><%= link_to "Edit User",edit_user_path(@user)%> <%= link_to "Back",users_path %></li>
+  </ul>
+</div>

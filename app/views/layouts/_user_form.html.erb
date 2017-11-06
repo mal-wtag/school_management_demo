@@ -1,0 +1,8 @@
+<%= simple_form_for @user do |f| %>
+
+    <%= f.input :name, placeholder: 'Enter name' %>
+    <%= f.input :phone,placeholder:'Enter phone' %>
+    <%= f.input :roll,placeholder:'Enter roll' %>
+    <%= f.input :address,placeholder:'Enter address' %>
+    <%= f.button :submit %> <%= link_to "Back",@user,class: "btn btn-default" %>
+<% end %>

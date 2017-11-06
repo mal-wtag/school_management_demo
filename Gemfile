@@ -31,6 +31,7 @@ gem 'sprockets'
 gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'bcrypt'
     # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

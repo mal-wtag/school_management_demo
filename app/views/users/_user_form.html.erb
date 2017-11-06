@@ -1,8 +1,15 @@
 <%= simple_form_for @user do |f| %>
 
     <%= f.input :name, placeholder: 'Enter name' %>
+      <%= f.simple_fields_for :login do |l| %>
+        <%= l.input :email, placeholder:'Enter email for logins' %>
+        <%= l.input :password,placeholder:'Enter password for logins' %>
+        <%= l.input :password_confirmation,placeholder:'Confirm password' %>
+      <% end %>
     <%= f.input :phone,placeholder:'Enter phone' %>
     <%= f.input :roll,placeholder:'Enter roll' %>
     <%= f.input :address,placeholder:'Enter address' %>
     <%= f.button :submit %> <%= link_to "Back",@user,class: "btn btn-default" %>
+
+
 <% end %>

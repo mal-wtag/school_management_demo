@@ -4,4 +4,5 @@ class User < ApplicationRecord
   validates :phone,presence:true
   validates :address,presence:true
   validates :roll,presence:true,uniqueness: true
+  accepts_nested_attributes_for :login
 end

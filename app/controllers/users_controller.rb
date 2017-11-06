@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def new
     @user=User.new
+    @user.build_login
   end
 
   def edit
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name,:phone,:roll,:address)
+      params.require(:user).permit(:name,:phone,:roll,:address, login_attributes:[:email,:password,:password_confirmation])
     end
 
 

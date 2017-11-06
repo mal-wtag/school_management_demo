@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only:[:show,:edit,:update,:destroy]
 
   def index
@@ -10,7 +11,6 @@ class UsersController < ApplicationController
 
   def new
     @user=User.new
-    @user.build_login
   end
 
   def edit
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user= User.new(user_params)
     if @user.save
-      flash[:success]="User created"
+      flash[:success] = "User created"
       redirect_to @user
     else
       render 'new'
@@ -28,8 +28,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if User.update(user_params)
-      flash[:success]="User updated"
+    if @user.update(user_params)
+      flash[:success] = "User updated"
       redirect_to @user
     else
       render 'edit'
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    flash[:danger]="User destroyed"
+    flash[:danger] = "User destroyed"
     redirect_to users_url
   end
 
@@ -49,10 +49,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name,:phone,:roll,:address, login_attributes:[:email,:password,:password_confirmation])
+      params.require(:user).permit(:name,:phone,:roll,:address, :email,:password,:password_confirmation)
     end
-
-
-
 end
 

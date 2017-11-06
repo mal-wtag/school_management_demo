@@ -25,15 +25,6 @@ ActiveRecord::Schema.define(version: 20171105092740) do
     t.index ["user_id", "course_id"], name: "index_courses_users_on_user_id_and_course_id"
   end
 
-  create_table "logins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id"
-    t.string "email"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password_digest"
-  end
-
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "code"
@@ -52,10 +43,11 @@ ActiveRecord::Schema.define(version: 20171105092740) do
     t.string "phone"
     t.string "roll"
     t.string "address"
-    t.integer "age"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["roll"], name: "index_users_on_roll", unique: true
+    t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

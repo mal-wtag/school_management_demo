@@ -1,0 +1,10 @@
+<%= simple_form_for(:session,url: login_path) do |f| %>
+
+
+    <%= f.input :email, placeholder:'Enter email for logins' %>
+    <%= f.input :password,placeholder:'Enter password for logins' %>
+
+    <%= f.button :submit %> <%= link_to "Back",@user,class: "btn btn-default" %>
+
+
+<% end %>

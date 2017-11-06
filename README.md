@@ -1,24 +1,13 @@
-# README
+# School Management System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install
 
-Things you may want to cover:
+`$ bundle install`
 
-* Ruby version
+Creating database with 'school_management_demo_development'
 
-* System dependencies
+`$ rails db:migrate`
 
-* Configuration
+Seeding needed for role settings
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`$ rails db:seed` 

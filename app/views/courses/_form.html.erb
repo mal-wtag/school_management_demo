@@ -1,0 +1,13 @@
+<%= simple_form_for(@course) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name,placeholer:"Enter course Name" %>
+    <%= f.input :credit,placeholer:"How many credits will it have" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to 'Back', courses_path, class:"btn btn-default" %>
+  </div>
+<% end %>

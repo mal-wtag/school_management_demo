@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_filter :user_authenticated!
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [ :show, :edit, :update, :destroy ]
 
   # GET /courses
   # GET /courses.json
@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-      flash[:success]="Course Created"
+      flash[:success] = 'Course Created'
       redirect_to @course
     else
         render :new
@@ -41,7 +41,7 @@ class CoursesController < ApplicationController
   def update
       if @course.update(course_params)
         redirect_to @course
-        flash[:success]="Course updated"
+        flash[:success] = 'Course updated'
       else
         render :edit
       end
@@ -53,7 +53,7 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
       redirect_to courses_url
-      flash[:danger]="Course deleted"
+      flash[:danger] = 'Course deleted'
     end
 
 

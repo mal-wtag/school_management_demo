@@ -1,18 +1,11 @@
 <%= simple_form_for @user do |f| %>
-
     <%= f.input :name, placeholder: 'Enter name' %>
     <%= f.input :email, placeholder:'Enter email for logins' %>
     <%= f.input :password,placeholder:'Enter password for logins' %>
     <%= f.input :password_confirmation,placeholder:'Confirm password' %>
     <%= f.association :roles, as: :check_boxes, collection: Role.all %>
-    <%#= f.simple_fields_for :roles , html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |r| %>
-
-        <%#= r.collection_check_boxes :role_id,Role.all,:id,:name %>
-    <%# end %>
     <%= f.input :phone,placeholder:'Enter phone' %>
     <%= f.input :roll,placeholder:'Enter roll' %>
     <%= f.input :address,placeholder:'Enter address' %>
     <%= f.button :submit %> <%= link_to "Back",@user,class: "btn btn-default" %>
-
-
 <% end %>

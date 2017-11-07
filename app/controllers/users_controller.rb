@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user= User.new(user_params)
     @user.roles << Role.find(params[:user][:role_ids].reject(&:empty?))
     if @user.save
-      flash[:success] = "User created"
+      flash[:success] = 'User created'
       redirect_to @user
     else
       render 'new'
@@ -34,16 +34,20 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       @user.roles.delete_all
       @user.roles << Role.find(params[:user][:role_ids].reject(&:empty?))
-      flash[:success] = "User updated"
+      flash[:success] = 'User updated'
       redirect_to @user
     else
       render 'edit'
     end
   end
 
+  def courses
+
+  end
+
   def destroy
     @user.destroy
-    flash[:danger] = "User destroyed"
+    flash[:danger] = 'User destroyed'
     redirect_to users_url
   end
 

@@ -1,6 +1,9 @@
 <%= simple_form_for @user do |f| %>
-
     <%= f.input :name, placeholder: 'Enter name' %>
+    <%= f.input :email, placeholder:'Enter email for logins' %>
+    <%= f.input :password,placeholder:'Enter password for logins' %>
+    <%= f.input :password_confirmation,placeholder:'Confirm password' %>
+    <%= f.association :roles, as: :check_boxes, collection: Role.all %>
     <%= f.input :phone,placeholder:'Enter phone' %>
     <%= f.input :roll,placeholder:'Enter roll' %>
     <%= f.input :address,placeholder:'Enter address' %>

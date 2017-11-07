@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SchoolManagementDemo</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-  <div class="container">
-
-
-      <%= yield %>
+<head>
+  <title>SchoolManagementDemo</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<div class="container">
+  <%= yield %>
   <div class="col-md-12">
     <%= render 'layouts/flash_message' %>
   </div>
-
-  </div>
-  </body>
+  <%= debug params %>
+</div>
+</body>
 </html>

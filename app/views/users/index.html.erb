@@ -20,7 +20,11 @@
         <tr>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
-          <td>Not implemented Yet</td>
+          <td>
+            <% user.roles.each do |role| %>
+                <%= role.name %> <%= role.equal?(user.roles.last) ?"":","  %>
+            <% end %>
+          </td>
           <td><%= user.phone %></td>
           <td><%= user.roll %></td>
           <td><%= user.address %></td>

@@ -14,10 +14,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
     @user= User.new(user_params)
+    @user.roles << Role.find(params[:user][:role_ids].reject(&:empty?))
     if @user.save
       flash[:success] = "User created"
       redirect_to @user
@@ -28,7 +30,10 @@ class UsersController < ApplicationController
   end
 
   def update
+
     if @user.update(user_params)
+      @user.roles.delete_all
+      @user.roles << Role.find(params[:user][:role_ids].reject(&:empty?))
       flash[:success] = "User updated"
       redirect_to @user
     else
@@ -44,12 +49,14 @@ class UsersController < ApplicationController
 
   private
 
-    def set_user
-      @user=User.find_by(id: params[:id])
-    end
+  def set_user
+    @user=User.find_by(id: params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:name,:phone,:roll,:address, :email,:password,:password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:name,:phone,:roll,:address, :email,:password,:password_confirmation,:roles_id=>[])
+  end
+
+
 end
 
